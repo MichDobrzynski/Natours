@@ -6,7 +6,7 @@
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/icon-font.css">
+        <!--<link rel="stylesheet" href="css/icon-font.css">-->
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
@@ -74,9 +74,24 @@
 
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
-                            <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+
+                            <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                                 src="img/nat-1-large.jpg"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em"
+                                 alt="Photo 1"
+                                 class="composition__photo composition__photo--p1">
+
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                                 src="img/nat-2-large.jpg"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em"
+                                 alt="Photo 2"
+                                 class="composition__photo composition__photo--p2">
+
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                                 src="img/nat-3-large.jpg"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em"
+                                 alt="Photo 3" 
+                                 class="composition__photo composition__photo--p3">
                         </div>
                     </div>
                 </div>
@@ -247,7 +262,10 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
-                            <img src="img/nat-8.jpg" alt="Person on a tour" class="story__image">
+                            <img srcset="img/nat-8.jpg 300w, img/nat-8-large.jpg 1000w"                       src="img/nat-8-large.jpg" 
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em"
+                                 alt="Mary Smith on a natour" 
+                                 class="story__image">
                             <figcaption class="story__caption">
                                 Mary Smith
                             </figcaption>
@@ -264,7 +282,10 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
-                            <img src="img/nat-9.jpg" alt="Person on a tour" class="story__image">
+                            <img srcset="img/nat-9.jpg 300w, img/nat-9-large.jpg 1000w"                       src="img/nat-9-large.jpg" 
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em"
+                                 alt="Jake Wilson on a natour" 
+                                 class="story__image">
                             <figcaption class="story__caption">
                                 Jake Wilson
                             </figcaption>
@@ -336,7 +357,12 @@
 
         <footer class="footer">
             <div class="footer__logo-box">
-                <img src="img/logo-green-2x.png" alt="Natours full logo" class="footer__logo">
+
+                <picture class="footer__logo">
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)" alt="Natours full logo">
+                    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" src="img/logo-green-2x.png" alt="Natours full logo">
+                </picture>
+
             </div>
 
             <div class="row">
