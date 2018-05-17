@@ -448,40 +448,36 @@ body {
       padding-left: 7rem; } }
   @media (max-width: 37.5em) {
     .story {
-      transform: skewX(0);
-      padding: 4rem; } }
+      transform: skewX(0); } }
   .story__shape {
     width: 15rem;
     height: 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    position: relative; }
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%; }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: none; } }
     @media (max-width: 37.5em) {
       .story__shape {
-        transform: translateX(0) skewX(0);
-        float: none;
-        width: auto;
-        -webkit-shape-outside: circle(45% at 50% 50%);
-        shape-outside: circle(45% at 50% 50%);
-        -webkit-clip-path: circle(45% at 50% 50%);
-        clip-path: circle(45% at 50% 50%); } }
+        transform: translateX(-3rem) skewX(0); } }
   .story__image {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
     transition: all .5s; }
-    @media (max-width: 37.5em) {
-      .story__image {
-        transform: translateX(1rem) scale(1.5); } }
   .story__text {
-    transform: skewX(12deg); }
+    transform: skewX(12deg);
+    hyphens: auto; }
     @media (max-width: 37.5em) {
       .story__text {
-        transform: skewX(0);
-        margin-top: 3rem; } }
+        transform: skewX(0); } }
   .story__caption {
     position: absolute;
     top: 50%;
@@ -499,10 +495,7 @@ body {
     transform: translate(-50%, -50%); }
   .story:hover .story__image {
     transform: translateX(-4rem) scale(1);
-    filter: brightness(25%); }
-    @media (max-width: 56.25em) {
-      .story:hover .story__image {
-        transform: translateX(1rem) scale(1.4); } }
+    filter: blur(3px) brightness(25%); }
 
 .bg-video {
   position: absolute;
@@ -733,6 +726,9 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     zoom: 101%; }
+    @media (max-width: 75em) {
+      .header__text-box {
+        top: 50%; } }
 
 .footer {
   background-color: #333;

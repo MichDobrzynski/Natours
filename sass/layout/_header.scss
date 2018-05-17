@@ -34,5 +34,9 @@
 
         // fixes bluriness on Chrome, not supported in Firefox
         zoom: 101%;
+
+        @include respond(tab-land) {
+            top: 50%;
+        }
     }
 }
