@@ -9,6 +9,7 @@
     overflow: hidden;
 
     &__content {
+        // Keeps background video from flowing outside of it's parent element .bg-video
         height: 100%;
         width: 100%;
         object-fit: cover;

@@ -3,25 +3,27 @@
     &,
     &:link,
     &:visited {
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 4rem;
         display: inline-block;
+        position: relative;
+        text-transform: $text-uppercase;
+        text-decoration: none;
+        font-size: $default-font-size;
+        padding: 1.5rem 4rem;
         border-radius: 10rem;
         transition: all .2s;
-        position: relative;
-        font-size: $default-font-size;
 
-        //Change for the <button> element
+        //Change for the <button> element since styles above were applied to <a>
         border: none;
         cursor: pointer;
     }
 
     &:hover {
+        // This makes button move up a bit 
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba($color-black, .2);
 
         &::after {
+            // This is the 'trigger' and actual animation of 'zooming out' and 'zooming in'
             transform: scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
@@ -29,20 +31,22 @@
 
     &:active,
     &:focus {
+        // This makes button move down a bit, making it look like it was physically clicked
         outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, .2);
     }
 
     &::after {
-        content: "";
+        // This is the first part, a base of 'zooming out' and 'zooming in', from here the 'outline' is being send.
         display: inline-block;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
         height: 100%;
         width: 100%;
         border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
         z-index: -1;
         transition: all .4s;
     }
@@ -67,6 +71,8 @@
 
     &--animated {
         animation: moveInBottom .5s ease-out .75s;
+
+        // this makes button move in from bottom
         animation-fill-mode: backwards;
     }
 }
@@ -74,12 +80,12 @@
 .btn-text {
     &:link,
     &:visited {
-        font-size: $default-font-size;
-        color: $color-primary;
         display: inline-block;
+        font-size: $default-font-size;
         text-decoration: none;
-        border-bottom: 1px solid $color-primary;
+        color: $color-primary;
         padding: .3rem 1rem;
+        border-bottom: 1px solid $color-primary;
         transition: all .2s;
     }
 
@@ -87,8 +93,8 @@
         background-color: $color-primary;
         color: $color-white;
         box-shadow: 0 1rem 2rem rgba($color-black, .15);
-        transform: translateY(-2px);
         border-radius: 2px;
+        transform: translateY(-2px);
     }
 
     &:active {

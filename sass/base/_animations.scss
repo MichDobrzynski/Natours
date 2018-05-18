@@ -1,3 +1,4 @@
+// Used in .heading-primary--main
 @keyframes moveInLeft {
     0% {
         opacity: 0;
@@ -14,6 +15,7 @@
     }
 }
 
+// Used in .heading-primary--sub
 @keyframes moveInRight {
     0% {
         opacity: 0;
@@ -30,6 +32,7 @@
     }
 }
 
+// Used in .btn--animated
 @keyframes moveInBottom {
     0% {
         opacity: 0;

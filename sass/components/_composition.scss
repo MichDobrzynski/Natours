@@ -6,17 +6,17 @@
     }
 
     &__photo {
-        width: 55%;
-        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
-        border-radius: 2px;
         position: absolute;
+        width: 55%;
+        border-radius: 2px;
         z-index: 10;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
         transition: .2s;
         outline-offset: 1.5rem;
 
         @include respond(tab-port) {
-            float: left;
             position: relative;
+            float: left;
             width: 33.33333333%;
             box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
         }

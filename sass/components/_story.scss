@@ -1,12 +1,12 @@
 .story {
     width: 75%;
     margin: 0 auto;
-    box-shadow: 0 3rem 6rem rgba($color-black, .1);
-    background-color: rgba($color-white, .6);
-    border-radius: 3px;
+    font-size: $default-font-size;
     padding: 6rem;
     padding-left: 9rem;
-    font-size: $default-font-size;
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
     transform: skewX(-12deg);
 
     @include respond(tab-port) {
@@ -20,14 +20,15 @@
     }
 
     &__shape {
+        position: relative;
         width: 15rem;
         height: 15rem;
         float: left;
-        transform: translateX(-3rem) skewX(12deg);
-        position: relative;
         overflow: hidden;
         border-radius: 50%;
+        transform: translateX(-3rem) skewX(12deg);
 
+        // Clip path cuts out the shape for image while shape outside makes text looks like it flows around that circle
         @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
             -webkit-clip-path: circle(50% at 50% 50%);
             clip-path: circle(50% at 50% 50%);
@@ -43,6 +44,7 @@
 
     &__image {
         height: 100%;
+        // TranslateX centers image on persons
         transform: translateX(-4rem) scale(1.4);
         backface-visibility: hidden;
         transition: all .5s;
@@ -50,7 +52,9 @@
 
     &__text {
         transform: skewX(12deg);
-        hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
 
         @include respond(phone) {
             transform: skewX(0);
@@ -61,12 +65,12 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, 20%);
-        color: $color-white;
         text-transform: uppercase;
         font-size: 1.7rem;
         text-align: center;
+        color: $color-white;
         opacity: 0;
+        transform: translate(-50%, 20%);
         transition: all .5s;
         backface-visibility: hidden;
     }

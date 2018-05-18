@@ -1,23 +1,30 @@
 .card {
 
-    // FUNCTIONALITY
+    // =============================================================
+    // ======================= FUNCTIONALITY =======================
+    // =============================================================
+
+    position: relative;
+    // Perspective makes '3d' effect of card turning
     perspective: 150rem;
     -moz-perspective: 150rem;
-    position: relative;
     height: 52rem;
     
     &__side {
-        height: 52rem;
-        transition: all .8s ease;
         position: absolute;
+        height: 52rem;
         top: 0;
         left: 0;
         width: 100%;
+
+        // this makes back side of card not visible
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+
         border-radius: 3px;
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        transition: all .8s ease;
 
         &--front {
             background-color: $color-white;
@@ -27,15 +34,21 @@
             transform: rotateY(-180deg);
 
             &-1 {
-                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+                background-image: linear-gradient(to right bottom,
+                $color-secondary-light, 
+                $color-secondary-dark);
             }
 
             &-2 {
-                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+                background-image: linear-gradient(to right bottom, 
+                $color-primary-light, 
+                $color-primary-dark);
             }
 
             &-3 {
-                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+                background-image: linear-gradient(to right bottom, 
+                $color-tertiary-light, 
+                $color-tertiary-dark);
             }
         }
     }
@@ -48,13 +61,23 @@
         transform: rotateY(0deg);
     }
 
-    // FRONT SIDE STYLING
+
+    // =============================================================
+    // ======================== FRONT SIDE =========================
+    // =============================================================
+
+
     &__picture {
-        background-size: cover;
         height: 23rem;
+        background-size: cover;
+
+        // In charge of blending image and gradient
         background-blend-mode: screen;
+
+        // Makes skewed image
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
 
@@ -64,9 +87,9 @@
             $color-secondary-dark),
             url(../img/nat-5.jpg);
 
-            @media (min-resolution: 192dpi) and (min-width: 37.5em),
-                   (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-                   (min-width: 125em) {
+            @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+                   only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+                   only screen and (min-width: 125em) {
                 background-image: linear-gradient(to right bottom,
                 $color-secondary-light,
                 $color-secondary-dark), 
@@ -80,12 +103,12 @@
             $color-primary-dark), 
             url(../img/nat-6.jpg);
 
-            @media (min-resolution: 192dpi) and (min-width: 37.5em),
-                   (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-                   (min-width: 125em) {
+            @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+                   only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+                   only screen and (min-width: 125em) {
                 background-image: linear-gradient(to right bottom,
-                $color-secondary-light,
-                $color-secondary-dark), 
+                $color-primary-light,
+                $color-primary-dark), 
                 url(../img/nat-6-large.jpg);
             }
         }
@@ -96,9 +119,9 @@
             $color-tertiary-dark),
             url(../img/nat-7.jpg);
 
-            @media (min-resolution: 192dpi) and (min-width: 37.5em),
-                   (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-                   (min-width: 125em) {
+            @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+                   only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+                   only screen and (min-width: 125em) {
                 background-image: linear-gradient(to right bottom,
                 $color-tertiary-light,
                 $color-tertiary-dark), 
@@ -108,18 +131,19 @@
     }
 
     &__heading {
-        font-size: 2.8rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        text-align: right;
-        color: $color-white;
         position: absolute;
         top: 12rem;
         right: 2rem;
         width: 75%;
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: $text-uppercase;
+        text-align: right;
+        color: $color-white;
     }
 
     &__heading-span {
+        //This makes 'background' for heading on images
         padding: 1rem 1.5rem;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
@@ -163,7 +187,11 @@
         }
     }
 
-    // BACK SIDE STYLING
+
+    // =============================================================
+    // ========================= BACK SIDE =========================
+    // =============================================================
+    
     &__cta {
         @include absoluteCenter;
         
@@ -179,7 +207,7 @@
 
     &__price-only {
         font-size: 1.4rem;
-        text-transform: uppercase;
+        text-transform: $text-uppercase;
     }
 
     &__price-value {
@@ -189,10 +217,13 @@
 
 
 
+    @media only screen and (max-width: 56.25em), 
+           only screen and (hover: none) {
+        
+        // =============================================================
+        // ======================= FUNCTIONALITY =======================
+        // =============================================================
 
-
-    @include respond(tab-port) {
-        // FUNCTIONALITY
         height: auto;
         border-radius: 3px;
         background-color: $color-white;
@@ -217,7 +248,11 @@
             padding: 1rem 3rem;
         }
 
-        // BACK SIDE STYLING
+        // =============================================================
+        // ======================== BACK SIDE ==========================
+        // =============================================================
+
+        
         &__cta {
             position: relative;
             top: 0;

@@ -7,7 +7,7 @@ body {
 
 .heading-primary {
     color: $color-white;
-    text-transform: uppercase;
+    text-transform: $text-uppercase;
     margin-bottom: 6rem;
     backface-visibility: hidden;
 
@@ -44,14 +44,17 @@ body {
 }
 
 .heading-secondary {
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    font-weight: 700;
     display: inline-block;
+    font-size: 3.5rem;
+    text-transform: $text-uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    // Background-image gets clipped to text shape and color: transparent makes gradient appear
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
     -webkit-background-clip: text;
     color: transparent;
-    letter-spacing: 2px;
+
     transition: all .2s;
 
     @include respond(tab-port) {
@@ -72,7 +75,7 @@ body {
 .heading-tertiary {
     font-size: $default-font-size;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: $text-uppercase;
 }
 
 .paragraph {

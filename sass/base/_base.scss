@@ -10,11 +10,11 @@ html {
     // This defines what 1 rem is 
     font-size: 62.5%;   // 1rem = 10px because 10px/16px = 62.5%
 
-    @include respond(tab-land) { // width < 1200px?
+    @include respond(tab-land) { 
         font-size: 56.25%;     // 1rem = 9px, 9/16 = 56.25%.
     }
 
-    @include respond(tab-port) { // width < 900px?
+    @include respond(tab-port) { 
         font-size: 50%;     // 1rem = 8px, 8/16 = 50%.
     }
 
@@ -30,5 +30,15 @@ body {
     @include respond(tab-port) {
         padding: 0;   
     }
+}
+
+::-moz-selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
 }
 
