@@ -57,6 +57,11 @@
             display: block;
             width: 100%;
         }
+
+        @include respond(phone) {
+            max-height: 80vh;
+            overflow: scroll;
+        }
     }
 
     &__img {

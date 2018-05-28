@@ -669,6 +669,10 @@ body {
       .popup__right {
         display: block;
         width: 100%; } }
+    @media only screen and (max-width: 37.5em) {
+      .popup__right {
+        max-height: 80vh;
+        overflow: scroll; } }
   .popup__img {
     display: block;
     width: 99%; }
